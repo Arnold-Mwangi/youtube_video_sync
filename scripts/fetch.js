@@ -3,7 +3,7 @@ import { addANODE } from "./channelInfo.js";
 import { displayPlaylists } from "./playlist.js";
 import { displayVideos } from "./videos.js";
 
-const apiKey = 'AIzaSyCss1MQ-Ou7KUVLOMFHdf7Puip-1XqOkGU';
+const apiKey = 'AIzaSyBkN3215yvzS2vuqrxK_Z2AxAfZZpJYSpM';
 
 // Add an event listener to the form submit event
 const channelForm = document.getElementById('channel-form');
