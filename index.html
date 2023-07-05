@@ -6,20 +6,30 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="./main.css">
 </head>
 
 <body>
     <div class="container">
         <header>
+            <h1>VidSync</h1>
             <nav>
-
+                <ul>
+                    <li id="home"><a href="#">Home</a></li>
+                    <li id="about"><a href="#">About Us</a></li>
+                    <li id="documentation"><a href="#">Documentation</a></li>
+                </ul>
             </nav>
         </header>
         <div class="main">
             <div class="section1">
+                <div class="overlay"></div>
                 <form class="form" id="channel-form">
-                    <input type="text" name="channelName" id="channelName" placeholder="search channel by name">
-                    <input type="submit" value="search" id="submitSearch">
+                    <div> <input type="text" name="channelName" id="channelName" placeholder="search channel by name">
+                    </div>
+                    <div>
+                        <input type="submit" value="search" id="submitSearch">
+                    </div>
                 </form>
             </div>
             <div id="section_2">
@@ -27,9 +37,10 @@
                 <div id="section_2_nav">
                     <nav>
                         <ul>
-                            <li id="channelInfo"><a href="">Channel Info</a></li>
-                            <li id="channelVideos"><a href="">Channel Videos</a></li>
-                            <li id="channelPlaylist"><a href="">Channel playlists</a></li>
+                            <li id="channelInfo"> Channel Info</li>
+                            <li id="channelVideos">Channel Videos</li>
+                            <li id="channelPlaylist">
+                                Channel playlists</li>
                         </ul>
                     </nav>
                 </div>
@@ -41,7 +52,7 @@
 
     </div>
 
-    <!-- <script src="https://apis.google.com/js/api.js"></script> -->
+
     <script type="module" src="./scripts/main.js"></script>
     <!-- <script src="./script.js"></script> -->
 

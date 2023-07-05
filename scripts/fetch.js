@@ -3,7 +3,7 @@ import {addANODE} from "./channelInfo.js";
 import { displayPlaylists } from "./playlist.js";
 import { displayVideos } from "./videos.js";
 
-const apiKey = 'AIzaSyB3f7nAbozOe2gJZetQc5GIuJGwqanKyOo';
+const apiKey = 'AIzaSyCss1MQ-Ou7KUVLOMFHdf7Puip-1XqOkGU';
 
 // Add an event listener to the form submit event
 const channelForm = document.getElementById('channel-form');
@@ -47,7 +47,7 @@ async function fetchChannelData(channelName) {
 
         // Fetch channel videos
         const videosResponse = await fetch(
-            `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&key=${apiKey}`
+            `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&maxResults=20&key=${apiKey}`
         );
         const videosResult = await videosResponse.json();
 
@@ -58,7 +58,7 @@ async function fetchChannelData(channelName) {
         const playlistsResult = await playlistsResponse.json();
 
         // Process and display channel data, videos, and playlists
-        // displayChannelData(searchResult.items[0]);
+        displayChannelData(searchResult.items[0]);
         const channelInfoLink = document.getElementById('channelInfo');
         channelInfoLink.addEventListener('click', handleChannelInfoLink);
         function handleChannelInfoLink(event) {
@@ -80,6 +80,7 @@ async function fetchChannelData(channelName) {
             event.preventDefault();
             displayPlaylists(playlistsResult.items);
         }
+        console.log(channelPlaylistLink)
     } catch (error) {
         console.error('Error fetching channel data:', error);
     }
