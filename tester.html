@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <nav>
+        <a href="#" id="channelInfoLink">Channel Info</a>
+        <a href="#" id="videosLink">Videos</a>
+        <a href="#" id="playlistLink">Playlist</a>
+      </nav>
+      
+      <div id="contentContainer"></div>
+</body>
+<script>
+    const channelInfoLink = document.getElementById('channelInfoLink');
+const videosLink = document.getElementById('videosLink');
+const playlistLink = document.getElementById('playlistLink');
+const contentContainer = document.getElementById('contentContainer');
+
+channelInfoLink.addEventListener('click', showChannelInfo);
+videosLink.addEventListener('click', showVideos);
+playlistLink.addEventListener('click', showPlaylist);
+
+function showChannelInfo() {
+  // Fetch channel information
+  // Update the contentContainer with the fetched data
+  contentContainer.innerHTML = '<h1>Channel Info</h1>';
+  
+}
+
+function showVideos() {
+  // Fetch videos
+  // Update the contentContainer with the fetched data
+  contentContainer.innerHTML = '<h1>Videos</h1>';
+}
+
+function showPlaylist() {
+  // Fetch playlist
+  // Update the contentContainer with the fetched data
+  contentContainer.innerHTML = '<h1>Playlist</h1>';
+}
+
+</script>
+</html>

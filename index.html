@@ -9,10 +9,44 @@
 </head>
 
 <body>
-    <div id="videos-container"></div>
-    <h3>Hello user</h3>
-    <script src="https://apis.google.com/js/api.js"></script>
-    <script src="./index.js"></script>
+    <div class="container">
+        <header>
+            <nav>
+
+            </nav>
+        </header>
+<div class="main">
+    <div class="section1">
+        <form class="form" id="channel-form">
+            <input type="text" name="channelName" id="channelName" placeholder="search channel by name">
+            <input type="submit" value="search" id="submitSearch">
+        </form>
+    </div>
+    <div class="section2">
+         <div id="search_results_container">
+            <div id="result_card">
+                <div class="result_thumbnail"></div>
+            </div>
+            <div id="videos-container">
+                <h1>videos
+
+                </h1>
+            </div>
+            <div id="playlists-container">
+                <h1>
+                    playlist
+                </h1>
+            </div>
+         </div>
+   
+    </div>
+</div>
+        
+    </div>
+   
+    <!-- <script src="https://apis.google.com/js/api.js"></script> -->
+    <script type="module" src="./scripts/main.js"></script>
+    <!-- <script src="./script.js"></script> -->
 
 </body>
 
