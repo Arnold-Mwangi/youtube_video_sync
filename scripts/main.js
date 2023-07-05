@@ -8,4 +8,5 @@ const header = document.querySelector('header');
 const headerHeight = getComputedStyle(header).height;
 document.documentElement.style.setProperty('--header-height', headerHeight);
 
-     
+
+// renderedContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
