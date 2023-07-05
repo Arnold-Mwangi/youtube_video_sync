@@ -2,7 +2,7 @@
 function displayVideos(videos) {
     // Display the videos in the DOM
     // Replace 'videos-container' with the ID or class of the element where you want to display the videos
-    const videosContainer = document.getElementById('videos-container');
+    const videosContainer = document.getElementById('section_2_content_container');
     videosContainer.innerHTML = '';
 
     videos.forEach((video) => {

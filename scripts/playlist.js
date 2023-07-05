@@ -2,7 +2,7 @@
 function displayPlaylists(playlists) {
     // Display the playlists in the DOM
     // Replace 'playlists-container' with the ID or class of the element where you want to display the playlists
-    const playlistsContainer = document.getElementById('playlists-container');
+    const playlistsContainer = document.getElementById('section_2_content_container');
     playlistsContainer.innerHTML = '';
 
     playlists.forEach((playlist) => {

@@ -1,12 +1,15 @@
 import { displayChannelData } from "./channelInfo.js";
+import {addANODE} from "./channelInfo.js";
 import { displayPlaylists } from "./playlist.js";
 import { displayVideos } from "./videos.js";
 
-
+const apiKey = 'AIzaSyB3f7nAbozOe2gJZetQc5GIuJGwqanKyOo';
 
 // Add an event listener to the form submit event
 const channelForm = document.getElementById('channel-form');
 channelForm.addEventListener('submit', handleFormSubmit);
+
+
 
 // Function to handle form submission
 function handleFormSubmit(event) {
@@ -23,6 +26,7 @@ function handleFormSubmit(event) {
 
 
 
+
 // Function to fetch channel data
 async function fetchChannelData(channelName) {
     console.log(channelName)
@@ -33,11 +37,7 @@ async function fetchChannelData(channelName) {
         );
         const searchResult = await searchResponse.json();
 
-        // Check if the API response contains any items
-        if (!searchResult || !searchResult.items || searchResult.items.length === 0) {
-            console.log('No channel found with the given name.');
-            return; // Exit the function if no channel is found
-        }
+
 
         // Extract channel ID
         const channelId = searchResult.items[0].id.channelId;
@@ -58,12 +58,31 @@ async function fetchChannelData(channelName) {
         const playlistsResult = await playlistsResponse.json();
 
         // Process and display channel data, videos, and playlists
-        displayChannelData(searchResult.items[0]);
-        displayVideos(videosResult.items);
-        displayPlaylists(playlistsResult.items);
+        // displayChannelData(searchResult.items[0]);
+        const channelInfoLink = document.getElementById('channelInfo');
+        channelInfoLink.addEventListener('click', handleChannelInfoLink);
+        function handleChannelInfoLink(event) {
+            event.preventDefault();
+            displayChannelData(searchResult.items[0]);
+            addANODE(searchResult.items[0]);
+        }
+        const channelVideos = document.getElementById('channelVideos');
+        channelVideos.addEventListener('click', handleChannelVideoLink);
+        function handleChannelVideoLink(event) {
+            event.preventDefault();
+            displayVideos(videosResult.items);
+        }
+        // displayVideos(videosResult.items);
+        // displayPlaylists(playlistsResult.items);
+        const channelPlaylistLink = document.getElementById('channelPlaylist');
+        channelPlaylistLink.addEventListener('click', handleChannelPlaylistLink);
+        function handleChannelPlaylistLink(event) {
+            event.preventDefault();
+            displayPlaylists(playlistsResult.items);
+        }
     } catch (error) {
         console.error('Error fetching channel data:', error);
     }
 }
 
-export{fetchChannelData}
+export { fetchChannelData }
