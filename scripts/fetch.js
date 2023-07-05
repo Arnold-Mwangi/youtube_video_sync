@@ -1,14 +1,18 @@
+//import js files
 import { displayChannelData } from "./channelInfo.js";
 import { addANODE } from "./channelInfo.js";
 import { displayPlaylists } from "./playlist.js";
 import { displayVideos } from "./videos.js";
 
+//declare API KEY
 const apiKey = 'AIzaSyBkN3215yvzS2vuqrxK_Z2AxAfZZpJYSpM';
 
 // Add an event listener to the form submit event
 const channelForm = document.getElementById('channel-form');
-// get rendered content
+
+// // get rendered content and make it visible on viewpot
 const renderedContent = document.getElementById('section_2_content_container');
+const rendeChannel = document.getElementById('channelId');
 
 channelForm.addEventListener('submit', handleFormSubmit);
 
@@ -22,11 +26,12 @@ function handleFormSubmit(event) {
 
     // Get the channel name from the input field
     const channelName = document.getElementById('channelName').value;
-    //get fetched data on view
-    renderedContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     // Call the fetchChannelData function with the retrieved channel name
     fetchChannelData(channelName);
+
+    //get fetched data on view
+    renderedContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
 }
 
 
@@ -38,6 +43,7 @@ function handleFormSubmit(event) {
 async function fetchChannelData(channelName) {
     console.log(channelName)
     try {
+
         // Fetch channel data
         const searchResponse = await fetch(
             `https://www.googleapis.com/youtube/v3/search?part=snippet&q=${channelName}&type=channel&key=${apiKey}`
@@ -52,11 +58,13 @@ async function fetchChannelData(channelName) {
         const channelDescription = searchResult.items[0].snippet.description;
         const channelThumbnailUrl = searchResult.items[0].snippet.thumbnails.default.url;
 
+
         // Fetch channel videos
         const videosResponse = await fetch(
             `https://www.googleapis.com/youtube/v3/search?part=snippet&channelId=${channelId}&type=video&maxResults=20&key=${apiKey}`
         );
         const videosResult = await videosResponse.json();
+
 
         // Fetch channel playlists
         const playlistsResponse = await fetch(
@@ -64,15 +72,19 @@ async function fetchChannelData(channelName) {
         );
         const playlistsResult = await playlistsResponse.json();
 
+
         // Process and display channel data, videos, and playlists
         displayChannelData(searchResult.items[0]);
         const channelInfoLink = document.getElementById('channelInfo');
         channelInfoLink.addEventListener('click', handleChannelInfoLink);
+
         function handleChannelInfoLink(event) {
             event.preventDefault();
+
             //get fetched data on view
             renderedContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
             displayChannelData(searchResult.items[0]);
+
             addANODE(searchResult.items[0]);
         }
         const channelVideos = document.getElementById('channelVideos');
@@ -81,6 +93,8 @@ async function fetchChannelData(channelName) {
             event.preventDefault();
             //get fetched data on view
             renderedContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
+
+
             displayVideos(videosResult.items);
         }
         // displayVideos(videosResult.items);

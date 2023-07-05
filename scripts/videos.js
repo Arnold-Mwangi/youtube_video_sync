@@ -15,10 +15,15 @@ function displayVideos(videos) {
         // Create a video element and append it to the videos container
         const videoElement = document.createElement('div');
         videoElement.innerHTML = `
-      <a href="https://www.youtube.com/watch?v=${videoId}" target="_blank">
-        <img src="${videoThumbnailUrl}" alt="${videoTitle}">
-        <h3>${videoTitle}</h3>
-      </a>
+        
+        <div> <img src="${videoThumbnailUrl}" alt="${videoTitle}"><div>
+        <div><p>${videoTitle}</p></div>
+        <div><a href="https://www.youtube.com/watch?v=${videoId}" target="_blank">Watch Video</a></div>
+        
+      
+       
+        
+      
     `;
         videosContainer.appendChild(videoElement);
     });
