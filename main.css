@@ -1,6 +1,8 @@
 body {
     padding: 0;
     margin: 0;
+    background-color: #1A1A1D;
+    color: #ffffff;
 }
 
 .container {
@@ -15,8 +17,7 @@ header {
     position: sticky;
     top: 0;
     margin-bottom: 1px;
-    background-color: rgb(218, 218, 218);
-    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.397);
+   background-color: #000000;
     z-index: 100; /* Increase the z-index value */
 }
 
@@ -26,11 +27,13 @@ header {
 
 header h1 {
     font-size: large;
+    color: #c3073F;
 }
 
 header nav {
     display: flex;
     justify-content:space-around;
+    /* box-shadow: 0 0 1px rgba(209, 207, 207, 0.712); */
 }
 
 header nav ul {
@@ -47,14 +50,22 @@ header nav li {
 
 header nav li a {
     text-decoration: none;
+    color:#c3073F;
+    padding: 5px;
+    
 }
+header nav li:nth-child(2n+1) {
+    color: #ffffff;
+}
+
 
 .section1 {
     position: relative;
     display: flex;
     justify-content: center;
     align-items: center;
-    height: calc(100vh  - var(--header-height) - 150px);
+    /* - 150px */
+    height: calc(100vh  - var(--header-height));
     background-image: url('https://wallpaper-house.com/data/out/5/wallpaper2you_59850.jpg');
     background-size:cover;
     background-position: center;
@@ -66,7 +77,7 @@ header nav li a {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: rgba(0, 0, 0, 0.664);
+    background-color: #501b1db4;
 
 }
 
@@ -75,7 +86,7 @@ header nav li a {
     z-index: 1;
 
     display: flex;
-    flex-direction: column;
+    flex-direction: row;
     justify-content: center;
     align-items: center;
 
@@ -94,15 +105,16 @@ input[type="text"] {
     padding: 10px;
     width: 250px;
     border: none;
-    border-bottom: 2px solid red;
+    border-bottom: 2px solid #adadad;
     background-color: transparent;
-
+    border-radius: 10px;
     outline: #0c0101;
     margin-bottom: 2px;
 }
 
 input[type="text"]::placeholder {
-    color: red;
+    color: white;
+    font-size: large;
 }
 
 #submitSearch {
@@ -112,7 +124,7 @@ input[type="text"]::placeholder {
     font-weight: bold;
     text-align: center;
     text-decoration: none;
-    color: red;
+    color:#c3073F;
     background-color: #0c0101;
     border: none;
     border-radius: 4px;
@@ -139,6 +151,7 @@ button:active {
 }
 #section_2_nav nav {
     display: flex;
+    margin: 10px;
     justify-content:space-around;
 }
 
@@ -152,24 +165,30 @@ button:active {
     display: inline;
     margin-left: 10px;
     margin-right: 20px;
+    
+    background-color:#c3073F;
+    color: black;
+    padding: 10px;
+    border-radius: 10px;
 }
 
 #section_2_nav nav li a {
     text-decoration: none;
+    color:#c3073F;
 }
-#section_2_nav nav ul li a::after {
+#section_2_nav nav ul li::after {
     content: "";
     position: absolute;
     left: 0;
     bottom: -2px;
     width: 100%;
     height: 1.5px;
-    background-color: red; 
+    background-color:#c3073F;
     transform: scaleX(0);
-    transition: transform 1.9s ease;
+    transition: transform 0.9s ease;
 }
 
-#section_2_nav nav ul li a:hover::after {
+#section_2_nav nav ul li:hover::after {
     transform: scaleX(1);
 }
 
