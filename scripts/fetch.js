@@ -1,5 +1,5 @@
 import { displayChannelData } from "./channelInfo.js";
-import {addANODE} from "./channelInfo.js";
+import { addANODE } from "./channelInfo.js";
 import { displayPlaylists } from "./playlist.js";
 import { displayVideos } from "./videos.js";
 
@@ -7,7 +7,12 @@ const apiKey = 'AIzaSyCss1MQ-Ou7KUVLOMFHdf7Puip-1XqOkGU';
 
 // Add an event listener to the form submit event
 const channelForm = document.getElementById('channel-form');
+// get rendered content
+const renderedContent = document.getElementById('section_2_content_container');
+
 channelForm.addEventListener('submit', handleFormSubmit);
+
+
 
 
 
@@ -17,6 +22,8 @@ function handleFormSubmit(event) {
 
     // Get the channel name from the input field
     const channelName = document.getElementById('channelName').value;
+    //get fetched data on view
+    renderedContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
 
     // Call the fetchChannelData function with the retrieved channel name
     fetchChannelData(channelName);
@@ -63,6 +70,8 @@ async function fetchChannelData(channelName) {
         channelInfoLink.addEventListener('click', handleChannelInfoLink);
         function handleChannelInfoLink(event) {
             event.preventDefault();
+            //get fetched data on view
+            renderedContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
             displayChannelData(searchResult.items[0]);
             addANODE(searchResult.items[0]);
         }
@@ -70,6 +79,8 @@ async function fetchChannelData(channelName) {
         channelVideos.addEventListener('click', handleChannelVideoLink);
         function handleChannelVideoLink(event) {
             event.preventDefault();
+            //get fetched data on view
+            renderedContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
             displayVideos(videosResult.items);
         }
         // displayVideos(videosResult.items);
@@ -78,6 +89,9 @@ async function fetchChannelData(channelName) {
         channelPlaylistLink.addEventListener('click', handleChannelPlaylistLink);
         function handleChannelPlaylistLink(event) {
             event.preventDefault();
+            console.log('yoh')
+            //get fetched data on view
+            renderedContent.scrollIntoView({ behavior: 'smooth', block: 'start' });
             displayPlaylists(playlistsResult.items);
         }
         console.log(channelPlaylistLink)
