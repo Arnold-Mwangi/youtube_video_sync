@@ -11,9 +11,9 @@ function displayChannelData(channel) {
     document.getElementById('section_2_content_container').innerHTML = `
     <div class = "channelInfo">
     <div><h2>${channelTitle}</h2></div>
-    <div><img src="${channelThumbnailUrl}" alt="${channelTitle} Thumbnail"></div>
-    <div> <p>${channelDescription}</p></div>
-    <div> <p id="channelId">${channelDescription}</p></div>
+    <div> <img src="${channelThumbnailUrl}" alt="${channelTitle} Thumbnail"></div>
+    <div> <p>${channelDescription}</p> </div>
+    <div> <p id="channelId">${channelDescription}</p> </div>
 
     </div>
   `;
