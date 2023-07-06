@@ -17,10 +17,16 @@ function displayVideos(videos) {
         const videoElement = document.createElement('div');
         videoElement.className = "videoElement"
         const videoCard = document.createElement('div');
-
         const vidImage = document.createElement('img');
         const vidTitle = document.createElement('p');
         const vidLink = document.createElement('a');
+        const addToPlaylistBtn = document.createElement('button');
+        addToPlaylistBtn.addEventListener('click', (e) => {
+            addToPlaylist(videoId, videoTitle, videoThumbnailUrl)
+        })
+        addToPlaylistBtn.textContent = "+ add to Playlist"
+        addToPlaylistBtn.className = "addToPlaylistBtn"
+
 
         // assign values and attributes
 
@@ -40,6 +46,7 @@ function displayVideos(videos) {
         videoCard.appendChild(vidImage)
         videoCard.appendChild(vidTitle)
         videoCard.appendChild(vidLink)
+        videoCard.appendChild(addToPlaylistBtn)
         videoElement.appendChild(videoCard)
 
 
@@ -121,4 +128,154 @@ closeButton.addEventListener('click', function () {
     videoModal.style.display = 'none';
     player.stopVideo();
 });
+
+// lets add a video to a playlist
+function addToPlaylist(videoId, videoTitle, videoThumbnailUrl) {
+    // Look for existing playlists from db.json
+    fetch('./sources/db.json')
+      .then(response => response.json())
+      .then(data => {
+        const playlists = data.playlists;
+  
+        // Check if there are existing playlists
+        if (playlists.length > 0) {
+          const playlistNames = createPlaylistDropDown(playlists);
+          const playlistName = prompt(
+            `Choose a playlist or enter a new playlist name:\n${playlistNames.join('\n')}`
+          );
+  
+          // Check if the user selected an existing playlist or entered a new one
+          if (playlistName) {
+            if (playlistName.toLowerCase() === 'new') {
+              // Give the user a prompt to enter a new playlist name
+              const newPlaylistName = prompt("Enter the new playlist name:");
+              if (newPlaylistName) {
+                createNewPlaylist(newPlaylistName, videoId, videoTitle, videoThumbnailUrl);
+              } else {
+                alert("Invalid playlist name. Please try again.");
+              }
+            } else {
+              // User selected an existing playlist
+              addToExistingPlaylist(playlistName, videoId, videoTitle, videoThumbnailUrl, playlists);
+            }
+          }
+        } else {
+          // No existing playlists, prompt the user to create a new one
+          const newPlaylistName = prompt("There are no existing playlists. Enter the new playlist name:");
+          if (newPlaylistName) {
+            createNewPlaylist(newPlaylistName, videoId, videoTitle, videoThumbnailUrl);
+          } else {
+            alert("Invalid playlist name. Please try again.");
+          }
+        }
+      })
+      .catch(error => {
+        console.error('Error retrieving playlists:', error);
+        alert("Error retrieving playlists. Please try again later.");
+      });
+  }
+  
+  
+  
+
+  function createPlaylistDropDown(playlists) {
+    const playlistNames = playlists.map(playlist => playlist.name);
+    return playlistNames;
+  }
+  
+  
+
+  
+function addToExistingPlaylist(playlistName, videoId, videoTitle, videoThumbnailUrl, playlists) {
+    // Find the playlist with the matching name
+    const playlist = playlists.find(playlist => playlist.name === playlistName);
+    
+    if (playlist) {
+      // Add the video to the existing playlist
+      playlist.videos.push({
+        videoId: videoId,
+        videoTitle: videoTitle,
+        videoThumbnailUrl: videoThumbnailUrl
+      });
+  
+      // Update the playlist in db.json
+      fetch('db.json', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({ playlists })
+      })
+        .then(response => {
+          if (response.ok) {
+            alert(`Video added to "${playlistName}" playlist successfully!`);
+          } else {
+            throw new Error('Failed to update playlist');
+          }
+        })
+        .catch(error => {
+          console.error('Error updating playlist:', error);
+          alert('Failed to update playlist. Please try again.');
+        });
+    } else {
+      // Playlist not found, create a new playlist with the given name
+      createNewPlaylist(playlistName, videoId, videoTitle, videoThumbnailUrl, playlists);
+    }
+  }
+  
+  
+  function generateUniqueId() {
+    return Date.now().toString();
+  }
+  
+  function createNewPlaylist(playlistName, videoId, videoTitle, videoThumbnailUrl) {
+    // Generate a unique ID for the new playlist
+    const newPlaylistId = generateUniqueId();
+  
+    // Create a new playlist object
+    const newPlaylist = {
+      id: newPlaylistId,
+      name: playlistName,
+      videos: [
+        {
+          videoId: videoId,
+          videoTitle: videoTitle,
+          videoThumbnailUrl: videoThumbnailUrl
+        }
+      ]
+    };
+  
+    // Fetch the existing playlists from db.json
+    fetch('./sources/db.json')
+      .then(response => response.json())
+      .then(data => {
+        const playlists = data.playlists || [];
+  
+        // Add the new playlist to the existing playlists array
+        playlists.push(newPlaylist);
+  
+        // Update the playlists in db.json
+        return fetch('./sources/db.json', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({ playlists })
+        });
+      })
+      .then(response => {
+        if (response.ok) {
+          alert(`New playlist "${playlistName}" created successfully! Video added to the playlist.`);
+        } else {
+          throw new Error('Failed to update playlists in db.json.');
+        }
+      })
+      .catch(error => {
+        console.error('Error creating new playlist:', error);
+        alert("Error creating new playlist. Please try again later.");
+      });
+  }
+  
+export{addToPlaylist}
+export{playVideo}
 export { displayVideos }
