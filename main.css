@@ -1,80 +1,178 @@
 body {
     padding: 0;
     margin: 0;
-    background-color: #1A1A1D;
-    color: #ffffff;
-    text-align: center;
+    background-color: #000308;
+    color: #c0d2e9f6;
 }
 
 .container {
+    height: 100vh;
     position: relative;
-    z-index: 0;
 }
 
 header {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    position: sticky;
     top: 0;
-    margin-bottom: 1px;
-    background-color: #000000;
-    z-index: 100;
+    width: 80%;
+    right: 0;
+    font-size: 15px;
+    background-color: #000308c7;
+    margin-left: 20%;
+    position: fixed;
+    z-index: 999;
 
-}
-
-.main {
-    position: relative;
-    z-index: 1;
 }
 
 header h1 {
-    font-size: large;
-    color: #c3073F;
+    font-size: 16px;
+    color: #c0d2e9f6;
 }
 
-header nav {
+.headerItem1 {
     display: flex;
-    justify-content: space-around;
-    /* box-shadow: 0 0 1px rgba(209, 207, 207, 0.712); */
+    justify-content: space-between;
+    flex-direction: row;
+    align-items: center;
+
 }
+
+.headerItem2 {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+.form {
+    display: flex;
+    justify-content: center;
+    flex-direction: row;
+    align-items: center;
+}
+
+.form>div {
+    margin-right: 10px;
+}
+
+form {
+    border: none;
+    width: 100%;
+    margin-bottom: 2px;
+
+}
+
+input[type='text'] {
+    display: block;
+    border: none;
+    padding: 5px;
+    border-radius: 2px;
+    border-bottom: 2px solid #3b4149f6;
+    background-color: #000308f6;
+    color: #c0d2e9f6;
+    background-color: transparent;
+
+    margin-bottom: 2px;
+}
+
+input[type='submit'] {
+    margin-bottom: 2px;
+
+}
+
+input[type="text"]::placeholder {
+    color: #c0d2e9f6;
+    font-size: large;
+    font-style: italic;
+
+}
+
+.search-icon {
+    color: #c0d2e9f6;
+    background-color: transparent;
+    border: none;
+    padding: 0;
+    cursor: pointer;
+}
+
 
 header nav ul {
     list-style-type: none;
-    margin: 0;
-    padding: 0;
+
 }
 
 header nav li {
     display: inline;
-    margin-left: 10px;
-    margin-right: 20px;
+    margin-right: 10px;
+
 }
 
 header nav li a {
+    display: inline-block;
     text-decoration: none;
-    color: #c3073F;
-    padding: 5px;
+    color: #c0d2e9f6;
+
 
 }
 
-header nav li:nth-child(2n+1) {
-    color: #ffffff;
+.header,
+.sidebar {
+    margin: 0;
+    padding: 0;
+    background-color: #0003087a;
 }
+
+/* style side bar */
+.sidebar {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    position: fixed;
+    background-color: #0003087a;
+    color: #c0d2e9f6;
+    width: 20%;
+    color: white;
+
+}
+
+.fa-bars {
+    margin-right: 10px;
+    color: #c0d2e9f6;
+    cursor: pointer;
+}
+
+.sidebar ul {
+    list-style-type: none;
+}
+
+.sidebar li {
+    text-align: left;
+    margin-bottom: 20px;
+    color: #c0d2e9f6;
+
+
+}
+
+.fas {
+    font-size: 10px;
+}
+
 
 
 .section1 {
     position: relative;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: calc(100vh - var(--header-height) - 150px);
+    top: 0;
     background-image: url('https://wallpaper-house.com/data/out/5/wallpaper2you_59850.jpg');
     background-size: cover;
     background-position: center;
-    z-index: 0;
-    /* calc(100vh - var(--header-height)) */
-
+    margin: 0;
+    color: #c0d2e9f6;
+    z-index: -1;
+    width: 80%;
+    float: right;
+    height: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .overlay {
@@ -83,167 +181,106 @@ header nav li:nth-child(2n+1) {
     left: 0;
     width: 100%;
     height: 100%;
-    background-color: #501b1db4;
-
-
+    background-color: #000308bd;
+    z-index: -1;
 }
 
-.sticky_container{
-    position: sticky;
-    top: 0;
-    color: white;
-    margin-top: 2px;   
-    z-index: 100;
-}
-
-.form {
-
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    padding: 10px;
-    align-items: center;
-
-
-
-}
-
-.form>div {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-input[type="text"] {
-    display: block;
-    padding: 10px;
-    width: 250px;
-    border: none;
-    border-bottom: 2px solid #c3073F;
-    background-color: rgb(236, 153, 153);
-    border-radius: 10px;
-    outline: #0c0101;
-    margin-bottom: 2px;
-}
-
-input[type="text"]::placeholder {
-    color: white;
-    font-size: large;
-    font-style: italic;
-}
-
-#submitSearch {
-    display: inline-block;
-    padding: 10px 20px;
-    font-size: 16px;
-    font-weight: bold;
+.sticky_container {
+    position: relative;
     text-align: center;
-    text-decoration: none;
-    color: #c3073F;
-    background-color: #0c0101;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-    transition: background-color 0.3s ease;
-
+    margin: 0 auto;
 }
 
-#submitSearch:hover {
-    background-color: #0c0101;
+.main {
+    position: relative;
+    width: 80%;
+    float: right;
+    height: calc(100vh - var(--header-height))
 }
 
-#submitSearch:focus {
-    outline: none;
-}
-
-button:active {
-    background-color: #3e8e41;
-}
-
-/* styling my content holder */
-#section_2 {
-    margin-top: 20px;
-}
-
-#section_2_nav {
-    position: fixed;
-    top: var(--header-height);
-    z-index: 999;
-    display: flex;
-    right: 0;
-    left: 0;
-    justify-content: center;
-    align-items: center;
-    background-color: #1A1A1D;
-
-}
-
-#section_2_nav nav {
-    display: flex;
-
-    justify-content: space-around;
-}
-
-#section_2_nav nav ul {
-    list-style-type: none;
-    margin: 0;
-    padding: 0;
-}
-
-#section_2_nav nav li {
-    display: inline;
-    margin-left: 10px;
-    background-color: #c3073F;
-    color: black;
-    padding: 10px;
-    border-radius: 10px;
-}
-
-#section_2_nav nav li a {
-    text-decoration: none;
-    color: #c3073F;
-}
-
-#section_2_nav nav ul li::after {
-    content: "";
-    position: absolute;
-    left: 0;
-    bottom: -2px;
-    width: 100%;
-    height: 1.5px;
-    background-color: #c3073F;
-    transform: scaleX(0);
-    transition: transform 0.9s ease;
-}
-
-#section_2_nav nav ul li:hover::after {
-    transform: scaleX(1);
-}
+#section_2 {}
 
 #section_2_content_container {
     display: flex;
-    flex-direction: row-reverse;
+    position: relative;
     justify-content: center;
     align-items: center;
     flex-wrap: wrap;
-
-}
-
-#section_2_content_container>div {
-    margin: 5px;
-    width: 250px;
-    border-radius: 10px;
-    height: 200px;
+    flex-shrink: 0;
+    flex-grow: initial;
 }
 
 .videoElement {
     display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 200px;
+    height: 170px;
+    margin: 5px;
+    padding: 10px;
+    border-radius: 10px;
+    color: #000308f6;
+    background-color: #c0d2e9f6;
+}
+
+.videoElement>div {
     text-align: center;
-    background-color: #c3073F;
-    color: white;
+    align-items: center;
+    justify-content: center;
+
+}
+
+.videoElement img {
+    display: block;
+    margin: auto;
+    max-width: 100%;
+    max-height: 50%;
+    border-radius: 5px;
+}
+
+
+.videoElement p {
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    margin-top: 5px;
+}
+
+.video-link {
+    text-decoration: none;
+    color: #000308f6;
+    background-color: #c0d2e9f6;
+    border: 2px solid #000308f6;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 5px;
+
+    transition: background-color 0.3s ease;
+}
+
+.video-link:hover {
+    background-color: #000308f6;
+    color: #c0d2e9f6;
+}
+
+.btn {
+    margin-top: 5px;
+}
+
+.addToPlaylistBtn {
+    background-color: #000308f6;
+    color: #c0d2e9f6;
+    border: none;
+    border-radius: 5px;
+    padding: 5px 10px;
+    margin-top: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+.addToPlaylistBtn:hover {
+    background-color: #c0d2e9f6;
+    color: #000308f6;
 }
 
 .modal {
@@ -255,8 +292,8 @@ button:active {
     transform: translate(-50%, -50%);
     width: 50%;
     height: 50%;
-    color: red;
-    background-color:transparent;
+    color: #0003087a;
+    background-color: transparent;
 }
 
 .modal-content {
@@ -291,27 +328,28 @@ button:active {
     left: 0;
 }
 
-.playlistItem{
+.playlistItem {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 
 }
-.channelInfodiv:first-child{
+
+.channelInfodiv:first-child {
     border-radius: 10px;
 }
-.channelInfo>div{
+
+.channelInfo>div {
     display: flex;
     justify-content: center;
     align-items: center;
-    flex-direction: column;    
-    background-color: #c3073F;
+
+    background-color: #0003087a;
     text-align: center;
     height: auto;
-    width:auto;
+    width: auto;
 }
-
 
 
 
