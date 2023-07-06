@@ -5,7 +5,7 @@ import { displayPlaylists } from "./playlist.js";
 import { displayVideos } from "./videos.js";
 
 //declare API KEY
-const apiKey = 'AIzaSyCSisC44LD0EKzPwjvPT0nFbsZxIg97cek';
+const apiKey = 'AIzaSyC6TJw5Te4b-xFvVfWzKtCl5-yQnSgC3b8';
 
 // Add an event listener to the form submit event
 const channelForm = document.getElementById('channel-form');
