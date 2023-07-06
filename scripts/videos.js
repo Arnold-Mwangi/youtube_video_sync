@@ -17,6 +17,8 @@ function displayVideos(videos) {
         const videoElement = document.createElement('div');
         videoElement.className = "videoElement"
         const videoCard = document.createElement('div');
+        const buttonDiv = document.createElement('div');
+        buttonDiv.className = "btn"
         const vidImage = document.createElement('img');
         const vidTitle = document.createElement('p');
         const vidLink = document.createElement('a');
@@ -43,10 +45,12 @@ function displayVideos(videos) {
             playVideo(videoId);
         });
         // append child elements
+        
         videoCard.appendChild(vidImage)
         videoCard.appendChild(vidTitle)
         videoCard.appendChild(vidLink)
-        videoCard.appendChild(addToPlaylistBtn)
+        buttonDiv.appendChild(addToPlaylistBtn)
+        videoCard.appendChild(buttonDiv)
         videoElement.appendChild(videoCard)
 
 
