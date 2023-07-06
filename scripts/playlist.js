@@ -1,7 +1,7 @@
 import { playVideo } from "./videos.js";
 import { addToPlaylist } from "./videos.js";
 
-const apiKey = 'AIzaSyC6TJw5Te4b-xFvVfWzKtCl5-yQnSgC3b8';
+const apiKey = 'AIzaSyAYWEpeHWRbnImd0znxgK9iV39fa3VMdEc';
 // Function to display playlists
 function displayPlaylists(playlists) {
   // Display the playlists in the DOM
