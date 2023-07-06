@@ -3,6 +3,7 @@ body {
     margin: 0;
     background-color: #1A1A1D;
     color: #ffffff;
+    text-align: center;
 }
 
 .container {
@@ -87,13 +88,13 @@ header nav li:nth-child(2n+1) {
 
 }
 
-/* .sticky_container{
+.sticky_container{
     position: sticky;
     top: 0;
+    color: white;
     margin-top: 2px;   
-    background-color: #0000005b;
     z-index: 100;
-} */
+}
 
 .form {
 
@@ -297,7 +298,19 @@ button:active {
     align-items: center;
 
 }
-
+.channelInfodiv:first-child{
+    border-radius: 10px;
+}
+.channelInfo>div{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;    
+    background-color: #c3073F;
+    text-align: center;
+    height: auto;
+    width:auto;
+}
 
 
 
