@@ -290,6 +290,13 @@ button:active {
     left: 0;
 }
 
+.playlistItem{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
 
 
 
