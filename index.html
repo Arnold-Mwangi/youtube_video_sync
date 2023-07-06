@@ -7,58 +7,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link rel="stylesheet" href="./main.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+
+</head>
 </head>
 
 <body>
     <div class="container">
         <header>
-            <h1>VidSync</h1>
+            <div class=headerItem1>
+                <h1><i class="fas fa-home"></i> VidSync </h1>
 
-            <nav>
-                <ul>
-                    <li id="home"><a href="#">Home</a></li>
-                    <li id="about"><a href="#">About Us</a></li>
-                    <li id="documentation"><a href="#">Documentation</a></li>
-                </ul>
-            </nav>
-        </header>
-        <div id="section_2_nav">
-            <div>
                 <nav>
                     <ul>
-                        <li id="channelInfo"> Channel Info</li>
-                        <li id="channelVideos">Channel Videos</li>
-                        <li id="channelPlaylist">
-                            Channel playlists</li>
-                        <li id="channelPlaylist">
-                            playlist</li>
+                        <li id="home"><a href="#">Home
+
+                            </a></li>
+                        <li id="about"><a href="#">About Us</a></li>
+                        <li id="documentation"><a href="#">Documentation</a></li>
                     </ul>
                 </nav>
             </div>
-
-            <div>
+            <div class="headerItem2">
                 <form class="form" id="channel-form">
-                    <div> <input type="text" name="channelName" id="channelName" placeholder="search channel by name">
+                    <div> <input type="text" name="channelName" id="channelName" placeholder="search channel ">
                     </div>
                     <div>
-                        <a href="#section_content_container"></a><input type="submit" value="search" id="submitSearch">
+                        <a href="#section_content_container"></a>
+                        <button type="submit" id="submitSearch" class="search-icon"><i
+                                class="fas fa-search search-icon"></i></button>
                     </div>
                 </form>
             </div>
-        </div>
-        <div class="main">
-            <div class="section1">
-                <div class="overlay"></div>
-                <div class="sticky_container">
 
-<p>search for your favorite artist and create a playlist</p>
-<p>Discover and explore videos on YouTube with ease.</p>
-        <div>Get Started by searching a channel</div>
-      </div>
-                </div>
+        </header>
+        <div class="sidebar">
+            <div>
+                <h4><i class=" fas fa-bars"></i>ViDsYnC&nbsp; &nbsp; &nbsp;</h4>
+            </div>
+            <div>
 
+                <ul>
+
+                    <li id="channelInfo"> <i class="fas fa-info"></i> Channel Info</li>
+                    <li id="channelVideos"><i class="fas fa-video"></i> Channel Videos</li>
+
+                    <li id="channelPlaylist">
+                        <i class="fas fa-list"></i> Channel playlist
+                    </li>
+
+                    <li id="channelPlaylist"><i class="fas fa-music"></i>
+                        playlist</li>
+
+                </ul>
 
             </div>
+        </div>
+
+
+        <div class="section1">
+            <div class="overlay"></div>
+            <div class="sticky_container">
+
+                <p>search for your favorite artist and create a playlist</p>
+                <p>Discover and explore videos on YouTube with ease.</p>
+                <div>Get Started by searching a channel</div>
+            </div>
+        </div>
+
+
+        <div class="main">
 
             <div id="section_2">
                 <!-- here is where results will be displayed upon clicking links on the section navs -->
@@ -71,9 +89,9 @@
 
         </div>
 
-
     </div>
- 
+    </div>
+
     <!-- Modal to play videos -->
     <div id="video-player-modal" class="modal">
         <div class="modal-content">
@@ -86,6 +104,7 @@
 
     <script type="module" src="./scripts/main.js"></script>
     <script src="https://www.youtube.com/iframe_api"></script>
+    <script src="https://kit.fontawesome.com/your-kit-id.js" crossorigin="anonymous"></script>
 
     <!-- <script src="./script.js"></script> -->
 
