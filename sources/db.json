@@ -1,4 +1,18 @@
 {
-    "playlists": []
-  }
-  
+"playlists": [
+    {
+      "id": "playlist1",
+      "name": "The Mics Are Open #213 I Parked The Trailer Downstairs",
+      "videos": [
+        {
+            
+        }
+      ]
+    },
+    {
+      "id": "playlist2",
+      "name": "Playlist 2",
+      "videos": []
+    }
+  ]
+}
