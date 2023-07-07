@@ -136,7 +136,7 @@ closeButton.addEventListener('click', function () {
 // lets add a video to a playlist
 function addToPlaylist(videoId, videoTitle, videoThumbnailUrl) {
     // Look for existing playlists from db.json
-    fetch('./sources/db.json')
+    fetch('https://youtube-sync-mufe.onrender.com/playlists')
       .then(response => response.json())
       .then(data => {
         const playlists = data.playlists;
@@ -250,7 +250,7 @@ function addToExistingPlaylist(playlistName, videoId, videoTitle, videoThumbnail
     };
   
     // Fetch the existing playlists from db.json
-    fetch('./sources/db.json')
+    fetch('https://youtube-sync-mufe.onrender.com/playlists')
       .then(response => response.json())
       .then(data => {
         const playlists = data.playlists || [];
@@ -259,7 +259,7 @@ function addToExistingPlaylist(playlistName, videoId, videoTitle, videoThumbnail
         playlists.push(newPlaylist);
   
         // Update the playlists in db.json
-        return fetch('./sources/db.json', {
+        return fetch('https://youtube-sync-mufe.onrender.com/playlists', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json'
