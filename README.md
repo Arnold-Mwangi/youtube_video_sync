@@ -32,6 +32,9 @@ Click watch video to load player plugin from youtube API
  CLICK ADD TO PLAYLIST TO SAVE A VIDEO
  ![Screenshot from 2023-07-07 01-02-49](https://github.com/Arnold-Mwangi/youtube_video_sync/assets/78974739/ba0c21da-35c1-47de-a8d9-e092327102a2)
 
+Hover on the user profile pic on the video to subscribe
+<img src="/Pictures/sbscribe.png" alt="Subscribe">
+
 
 Documentation and API Reference:
 <a href='https://developers.google.com/youtube/v3/docs'>API Documentation</a>
