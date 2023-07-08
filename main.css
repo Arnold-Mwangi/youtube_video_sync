@@ -198,7 +198,7 @@ header nav li a {
     height: calc(100vh - var(--header-height))
 }
 
-#section_2 {}
+
 
 #section_2_content_container {
     display: flex;

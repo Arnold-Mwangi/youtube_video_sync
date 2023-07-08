@@ -1,15 +1,18 @@
 import { playVideo } from "./videos.js";
 import { addToPlaylist } from "./videos.js";
 
-const apiKey = 'AIzaSyA5-IzsP6eZjeqNsioezJETIFZIuqJJDnI';
+const apiKey = 'AIzaSyD9qYxr0CwALzCSk_2EH8UPsEssoVVbr2Q';
+
 // Function to display playlists
 function displayPlaylists(playlists) {
+
   // Display the playlists in the DOM
   // Replace 'playlists-container' with the ID or class of the element where you want to display the playlists
   const playlistsContainer = document.getElementById('section_2_content_container');
   playlistsContainer.innerHTML = '';
 
   playlists.forEach((playlist) => {
+    
     // Extract relevant information from the playlist object
     const playlistId = playlist.id;
     const playlistTitle = playlist.snippet.title;

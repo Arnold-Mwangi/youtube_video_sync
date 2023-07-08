@@ -133,6 +133,17 @@ closeButton.addEventListener('click', function () {
     player.stopVideo();
 });
 
+// function addToPlaylist(videoId, videoTitle, videoThumbnailUrl) {
+//   fetch('https://youtube-sync-mufe.onrender.com/playlists')
+//   .then(response => response.json() )
+//   .then(data =>{
+//     data.forEach((item, index) =>{
+//       console.log(item.videos)
+//       // displayPlaylists(item)
+//     })
+//   })
+// }
+
 // lets add a video to a playlist
 function addToPlaylist(videoId, videoTitle, videoThumbnailUrl) {
     // Look for existing playlists from db.json
