@@ -33,7 +33,8 @@ Click watch video to load player plugin from youtube API
  ![Screenshot from 2023-07-07 01-02-49](https://github.com/Arnold-Mwangi/youtube_video_sync/assets/78974739/ba0c21da-35c1-47de-a8d9-e092327102a2)
 
 Hover on the user profile pic on the video to subscribe
-<img src="./scripts/Pictures/sbscribe.png" alt="Subscribe">
+<img src="./scripts/Pictures/sbscribe.png" alt="Subscribe">![sbscribe](https://github.com/Arnold-Mwangi/youtube_video_sync/assets/78974739/23df4014-8869-4d2c-af2b-52f39b707bbc)
+
 
 
 Documentation and API Reference:
